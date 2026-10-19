@@ -15,7 +15,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const repo = resolve(root, '..', '..');
 const BROKER_MISSION = /^(people_search|enterprise_data|ad_trackers|location_brokers)-/;
 
-// Shared corporate domains (lexisnexis.com, thomsonreuters.com, transunion.com, beenverified.com)
+// Shared corporate domains (lexisnexis.com, thomsonreuters.com, transunion.com, beenverified.com, theworknumber.com)
 // are carried by many registry records; these say which ones a step actually reaches.
 const OVERRIDES = {
   'https://consumer.risk.lexisnexis.com/request': ['lexisnexis-risk-solutions', 'lexisnexis-risk-solutions-fl'],
@@ -23,6 +23,8 @@ const OVERRIDES = {
   'https://legal.thomsonreuters.com/en/legal-notices/privacy-records': ['thomson-reuters', 'west-publishing', 'west-publising'],
   'https://www.transunion.com/consumer-privacy': ['trans-union', 'tloxp'],
   'https://www.beenverified.com/faq/opt-out/': ['beenverified', 'beenverified-llc-and-its-subsidiaries-and-affiliates'],
+  // The Work Number is Equifax Workforce Solutions'. Equifax Apprise Solutions (VT) shares the domain.
+  'https://employees.theworknumber.com/employment-data-report': ['equifax-workforce-solutions'],
 };
 
 // Steps with no URL that still send the player to file with one named broker.

@@ -3,13 +3,14 @@
   "name": "MULTIMEDIA LISTS, INC.",
   "aliases": [
     "Multimedia Lists Inc",
-    "MULTIMEDIA LISTS INC"
+    "MULTIMEDIA LISTS INC",
+    "Multimedia Lists"
   ],
   "parent": null,
   "kind": [],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -18,7 +19,7 @@
     "method": "web-form",
     "url": "https://www.multimedialists.com",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -27,7 +28,8 @@
   "sources": [
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
-    "registry-or-2026-10-18"
+    "registry-or-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://www.multimedialists.com"
 }

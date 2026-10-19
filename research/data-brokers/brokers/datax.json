@@ -4,7 +4,12 @@
   "aliases": [],
   "parent": "equifax",
   "kind": [],
-  "registries": {},
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
   "sells": [],
   "optOut": null,
   "size": {
@@ -12,6 +17,8 @@
     "signals": []
   },
   "sources": [
+    "registry-vt-2026-10-19",
     "sec-efx-10k-2025-ex21"
-  ]
+  ],
+  "website": "https://dataxltd.com/"
 }

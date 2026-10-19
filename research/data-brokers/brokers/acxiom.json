@@ -14,7 +14,7 @@
   ],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -36,6 +36,7 @@
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
     "registry-or-2026-10-18",
+    "registry-vt-2026-10-19",
     "sec-omc-10k-2025",
     "sec-omc-10k-2025-ex21",
     "pol-acxiom-optout",

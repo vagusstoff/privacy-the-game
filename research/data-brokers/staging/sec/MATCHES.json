@@ -10,6 +10,16 @@
     "matchedBy": "id"
   },
   {
+    "stagedId": "clarity-services",
+    "existingId": "clarity-services",
+    "matchedBy": "id"
+  },
+  {
+    "stagedId": "datax",
+    "existingId": "datax",
+    "matchedBy": "id"
+  },
+  {
     "stagedId": "drivers-history-information-sales",
     "existingId": "drivers-history-information-sales",
     "matchedBy": "id"
@@ -22,6 +32,11 @@
   {
     "stagedId": "equifax-workforce-solutions",
     "existingId": "equifax-workforce-solutions",
+    "matchedBy": "id"
+  },
+  {
+    "stagedId": "experian-background-data",
+    "existingId": "experian-background-data",
     "matchedBy": "id"
   },
   {
@@ -50,6 +65,11 @@
     "matchedBy": "id"
   },
   {
+    "stagedId": "lexisnexis-risk-solutions",
+    "existingId": "lexisnexis-risk-solutions",
+    "matchedBy": "id"
+  },
+  {
     "stagedId": "liveramp",
     "existingId": "liveramp",
     "matchedBy": "id"
@@ -72,6 +92,11 @@
   {
     "stagedId": "tapad",
     "existingId": "tapad",
+    "matchedBy": "id"
+  },
+  {
+    "stagedId": "teletrack",
+    "existingId": "teletrack",
     "matchedBy": "id"
   },
   {

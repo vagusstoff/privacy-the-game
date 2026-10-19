@@ -8,7 +8,7 @@ import { KINDS, REGISTRY_KEYS, validateDataset } from './schema.js';
 // `email` is mapped only where the registry labels it an opt-out address (OR). CA and TX publish a
 // general contact email, which is not an opt-out route, so it is left out.
 // `flags` are yes/no columns that map unambiguously onto one kind.
-// VT is absent: its registry could not be obtained (login-gated bulk download, reCAPTCHA search).
+// `onlyWhere` keeps only rows whose column has one of the listed values (VT lists lapsed registrations too).
 export const COLUMN_MAPS = Object.freeze({
   CA: {
     name: 'Data broker name:',
@@ -33,17 +33,29 @@ export const COLUMN_MAPS = Object.freeze({
     optOutUrl: 'OPT OUT WEBSITE',
     email: 'OPT OUT EMAIL',
   },
+  VT: {
+    name: 'Name',
+    website: 'PrimaryInterneturl',
+    // Free text describing how to opt out; used only when the whole answer is a URL or an email address.
+    // "EmailAddress" is the broker's general contact email, not an opt-out route, so it is left out.
+    optOutUrl: 'OptOutMethod',
+    // The bulk file also lists registrations that lapsed ("Unregistered", mostly expired 2/1/2026).
+    onlyWhere: { DataBrokerStatus: ['Registered'] },
+  },
 });
 
 // Exact (lower-cased, trimmed) registry category labels → kind. Only unambiguous labels belong here.
-// No obtained registry has fixed category labels yet, so the map is empty and categories give kind: [].
-export const CATEGORY_MAP = Object.freeze({ CA: {}, TX: {}, OR: {} });
+// No obtained registry has fixed category labels (VT has no category column at all), so every map is
+// empty and categories give kind: [].
+export const CATEGORY_MAP = Object.freeze({ CA: {}, TX: {}, OR: {}, VT: {} });
 
 // Registry pages, for the sources.json entry.
 export const REGISTRY_META = Object.freeze({
   CA: { url: 'https://cppa.ca.gov/data_broker_registry/registry.csv', title: 'California Privacy Protection Agency, California Data Broker Registry (2026 registrations)' },
   TX: { url: 'https://texas-sos.appianportalsgov.com/data-broker-registry', title: 'Texas Secretary of State, Registry of Registered Data Brokers (Export to Excel)' },
   OR: { url: 'https://www4.cbs.state.or.us/ex/shared/downtemp/dfcs_db_optout.csv', title: 'Oregon DCBS Division of Financial Regulation, Data Broker Opt Out Methods report' },
+  // The bulk file sits behind a login and has no public URL; this is the registry's public search page.
+  VT: { url: 'https://bizfilings.vermont.gov/databrokersearch/Search', title: 'Vermont Secretary of State, Data Broker registry (Bulk Database Download, "Data Broker" file)' },
 });
 
 const BLANK = /^(|n\/?a\.?|none\.?|null|not applicable|-+)$/i;
@@ -165,6 +177,7 @@ export function importRows(state, rows, existing, sourceId) {
 
   for (const r of rows.slice(h + 1)) {
     const row = at(r);
+    if (col.onlyWhere && !Object.entries(col.onlyWhere).every(([hdr, ok]) => ok.includes(clean(row(hdr))))) continue;
     const [name, ...embedded] = splitDba(clean(row(col.name)).replace(/\s+/g, ' '));
     if (!name) continue;
     const dbaField = col.dba ? clean(row(col.dba)).split(/[;\n]/).flatMap((s) => splitDba(clean(s).replace(/\s+/g, ' '))) : [];
@@ -206,7 +219,7 @@ async function main(argv) {
   const { dirname, join, resolve } = await import('node:path');
   const [state, csvPath, date, archived] = argv;
   if (!COLUMN_MAPS[state] || !csvPath || !/^\d{4}-\d{2}-\d{2}$/.test(date ?? '')) {
-    console.error('usage: node import-registry.js <CA|TX|OR> <csvPath> <YYYY-MM-DD> [archivedUrl]');
+    console.error('usage: node import-registry.js <CA|TX|OR|VT> <csvPath> <YYYY-MM-DD> [archivedUrl]');
     process.exit(2);
   }
   const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');

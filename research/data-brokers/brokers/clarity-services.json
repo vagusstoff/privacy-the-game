@@ -1,10 +1,17 @@
 {
   "id": "clarity-services",
-  "name": "Clarity Services, Inc.",
-  "aliases": [],
+  "name": "Clarity Services, Inc",
+  "aliases": [
+    "Clarity Services, Inc."
+  ],
   "parent": "experian",
   "kind": [],
-  "registries": {},
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
   "sells": [],
   "optOut": null,
   "size": {
@@ -12,6 +19,8 @@
     "signals": []
   },
   "sources": [
+    "registry-vt-2026-10-19",
     "sec-experian-annual-report-2026"
-  ]
+  ],
+  "website": "https://www.clarityservices.com"
 }

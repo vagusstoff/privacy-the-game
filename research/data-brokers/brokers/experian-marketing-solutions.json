@@ -12,7 +12,7 @@
   ],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -24,7 +24,7 @@
     "method": "web-form",
     "url": "https://consumerprivacy.experian.com",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -34,6 +34,7 @@
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
     "registry-or-2026-10-18",
+    "registry-vt-2026-10-19",
     "sec-experian-annual-report-2026",
     "pol-experian-marketing-data-practices",
     "pol-experian-optout-targeted-ads"

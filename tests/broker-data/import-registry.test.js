@@ -4,18 +4,18 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { parseCsv } from '../../research/data-brokers/build/csv.js';
 import { validateBroker } from '../../research/data-brokers/build/schema.js';
-import { COLUMN_MAPS, importRows, mergeCandidates, splitDba } from '../../research/data-brokers/build/import-registry.js';
+import { CATEGORY_MAP, COLUMN_MAPS, REGISTRY_META, importRows, mergeCandidates, splitDba } from '../../research/data-brokers/build/import-registry.js';
 
 const fx = join(dirname(fileURLToPath(import.meta.url)), '..', 'fixtures', 'registries');
 const rows = (s) => parseCsv(readFileSync(join(fx, `${s}.csv`), 'utf8'));
-const SRC = { CA: 'registry-ca-2026-10-18', TX: 'registry-tx-2026-10-18', OR: 'registry-or-2026-10-18' };
+const SRC = { CA: 'registry-ca-2026-10-18', TX: 'registry-tx-2026-10-18', OR: 'registry-or-2026-10-18', VT: 'registry-vt-2026-10-19' };
 const run = (state, existing = new Map()) => importRows(state, rows(state.toLowerCase()), existing, SRC[state]);
 const byName = (m, name) => [...m.values()].find((b) => b.name === name);
 
 describe('COLUMN_MAPS', () => {
   it('names a real header for every obtained registry', () => {
-    for (const s of ['CA', 'TX', 'OR']) expect(COLUMN_MAPS[s].name).toBeTruthy();
-    for (const s of ['ca', 'tx', 'or']) {
+    for (const s of ['CA', 'TX', 'OR', 'VT']) expect(COLUMN_MAPS[s].name).toBeTruthy();
+    for (const s of ['ca', 'tx', 'or', 'vt']) {
       const all = rows(s).flat();
       expect(all).toContain(COLUMN_MAPS[s.toUpperCase()].name);
     }
@@ -176,5 +176,62 @@ describe('importRows', () => {
     run('TX', before);
     expect(Object.fromEntries(before)).toEqual(copy);
     expect(() => importRows('ZZ', [['x']], new Map(), 'registry-zz')).toThrow();
+  });
+});
+
+describe('Vermont (VT)', () => {
+  it('has registry metadata and no category labels to map', () => {
+    expect(REGISTRY_META.VT.url).toBe('https://bizfilings.vermont.gov/databrokersearch/Search');
+    expect(CATEGORY_MAP.VT).toEqual({});
+    // Every mapped header is a real column of the fixture (copied from the bulk file).
+    const header = rows('vt')[0];
+    for (const h of [COLUMN_MAPS.VT.name, COLUMN_MAPS.VT.website, COLUMN_MAPS.VT.optOutUrl, ...Object.keys(COLUMN_MAPS.VT.onlyWhere)]) expect(header).toContain(h);
+  });
+
+  it('VT row becomes broker with registries.VT', () => {
+    const m = run('VT');
+    const b = byName(m, 'Vermont Only Data, Inc.');
+    expect(b).toBeDefined();
+    expect(b.id).toBe('vermont-only-data');
+    expect(b.registries).toEqual({ CA: null, VT: '2026', TX: null, OR: null });
+    expect(b.optOut).toEqual({ method: 'web-form', url: 'https://vtonly.test/opt-out', status: 'unchecked' });
+    expect(b.website).toBe('https://www.vtonly.test');
+    expect(b.sources).toEqual([SRC.VT]);
+    // One record per broker, though the bulk file repeats a broker once per applicant contact.
+    expect([...m.values()].filter((r) => r.name === 'Vermont Only Data, Inc.')).toHaveLength(1);
+    const sourceIds = new Set([SRC.VT]);
+    for (const r of m.values()) expect(validateBroker(r, { sourceIds })).toEqual([]);
+  });
+
+  it('only rows with DataBrokerStatus "Registered" are imported', () => {
+    const m = run('VT');
+    expect(byName(m, 'Lapsed Data LLC')).toBeUndefined();
+    // A broker with a lapsed and a current registration is in.
+    expect(byName(m, 'Renewed Data LLC').registries.VT).toBe('2026');
+    expect(m.size).toBe(5);
+  });
+
+  it('VT row merges with an existing CA or OR record by legal name', () => {
+    const m = run('VT', run('OR', run('CA')));
+    const acx = m.get('acxiom');
+    expect(acx.registries).toMatchObject({ CA: '2026', VT: '2026' });
+    expect(acx.sources).toEqual([SRC.CA, SRC.VT]);
+    // CA's opt-out route stays; VT's prose answer never overwrites it.
+    expect(acx.optOut.url).toBe('https://isapps.acxiom.com/optout/optout.aspx');
+    const geo = byName(m, 'Geo Parent Holdings Inc');
+    expect(geo.registries).toMatchObject({ OR: '2026', VT: '2026' });
+    expect(geo.aliases).toContain('GEO PARENT HOLDINGS, INC.');
+    expect([...m.values()].filter((b) => b.registries.VT)).toHaveLength(5);
+  });
+
+  it('blank or prose opt-out stays null; the general contact email is not used', () => {
+    const m = run('VT');
+    expect(byName(m, 'Blank Optout VT LLC').optOut).toBeNull();
+    expect(byName(m, 'GEO PARENT HOLDINGS, INC.').optOut).toBeNull();
+    expect(byName(m, 'ACXIOM LLC').optOut).toBeNull();
+  });
+
+  it('VT kind stays empty', () => {
+    for (const b of run('VT').values()) expect(b.kind).toEqual([]);
   });
 });

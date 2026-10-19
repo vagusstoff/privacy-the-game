@@ -2,13 +2,14 @@
   "id": "anne-lewis-strategies",
   "name": "Anne Lewis Strategies LLC",
   "aliases": [
-    "MissionWired"
+    "MissionWired",
+    "Anne Lewis Strategies, LLC"
   ],
   "parent": null,
   "kind": [],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": null,
     "OR": null
   },
@@ -17,14 +18,15 @@
     "method": "web-form",
     "url": "https://info.missionwired.com/coop-optout",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
     "signals": []
   },
   "sources": [
-    "registry-ca-2026-10-18"
+    "registry-ca-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://www.missionwired.com"
 }

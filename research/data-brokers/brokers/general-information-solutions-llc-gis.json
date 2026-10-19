@@ -1,0 +1,22 @@
+{
+  "id": "general-information-solutions-llc-gis",
+  "name": "General Information Solutions LLC (\"GIS\")",
+  "aliases": [],
+  "parent": null,
+  "kind": [],
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
+  "sells": [],
+  "optOut": null,
+  "size": {
+    "known": false,
+    "signals": []
+  },
+  "sources": [
+    "registry-vt-2026-10-19"
+  ]
+}

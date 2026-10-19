@@ -12,7 +12,7 @@
   ],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -20,8 +20,8 @@
   "optOut": {
     "method": "web-form",
     "url": "https://www.n-focus.com/privacy-policy/",
-    "status": "blocked",
-    "verifiedAt": "2026-10-18"
+    "status": "verified",
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -30,7 +30,8 @@
   "sources": [
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
-    "registry-or-2026-10-18"
+    "registry-or-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://www.n-focus.com"
 }

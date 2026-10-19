@@ -2,13 +2,14 @@
   "id": "agile-education-marketing",
   "name": "Agile Education Marketing, LLC",
   "aliases": [
-    "AGILE EDUCATION MARKETING"
+    "AGILE EDUCATION MARKETING",
+    "Agile Education Marketing"
   ],
   "parent": null,
   "kind": [],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": null,
     "OR": "2026"
   },
@@ -17,7 +18,7 @@
     "method": "web-form",
     "url": "https://agile-ed.com/california-privacy-rights/",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -25,7 +26,8 @@
   },
   "sources": [
     "registry-ca-2026-10-18",
-    "registry-or-2026-10-18"
+    "registry-or-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://agile-ed.com"
 }

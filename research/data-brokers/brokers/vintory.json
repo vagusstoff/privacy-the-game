@@ -1,12 +1,14 @@
 {
   "id": "vintory",
   "name": "Vintory, LLC",
-  "aliases": [],
+  "aliases": [
+    "Vintory LLC"
+  ],
   "parent": null,
   "kind": [],
   "registries": {
     "CA": null,
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": null
   },
@@ -15,14 +17,15 @@
     "method": "web-form",
     "url": "https://www.vintory.com/privacy-policy/",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
     "signals": []
   },
   "sources": [
-    "registry-tx-2026-10-18"
+    "registry-tx-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://www.vintory.com"
 }

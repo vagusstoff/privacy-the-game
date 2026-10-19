@@ -3,7 +3,8 @@
   "name": "Labels & Lists, Inc",
   "aliases": [
     "L2, Inc",
-    "LABELS & LISTS INC"
+    "LABELS & LISTS INC",
+    "Labels and Lists"
   ],
   "parent": null,
   "kind": [
@@ -11,7 +12,7 @@
   ],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -20,7 +21,7 @@
     "method": "web-form",
     "url": "https://www.l2-data.com/wp-content/uploads/2025/08/L2-Privacy-Notice-19Aug25v3.pdf",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -29,7 +30,8 @@
   "sources": [
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
-    "registry-or-2026-10-18"
+    "registry-or-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://www.l2-data.com"
 }

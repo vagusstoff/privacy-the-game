@@ -14,8 +14,8 @@
   "optOut": {
     "method": "web-form",
     "url": "https://www.telesign.com/privacy-requests",
-    "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "status": "blocked",
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,

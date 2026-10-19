@@ -15,7 +15,12 @@
     "automotive",
     "marketing"
   ],
-  "registries": {},
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
   "sells": [
     "risk, fraud and identity analytics from public, contributory and proprietary data",
     "vehicle and behaviour-centric data for insurers",
@@ -44,6 +49,7 @@
     ]
   },
   "sources": [
+    "registry-vt-2026-10-19",
     "sec-relx-annual-report-2025",
     "sec-relx-20f-2025",
     "enf-ftc-gm-complaint-2026",
@@ -57,6 +63,7 @@
     "pol-lexisnexis-risk-optout",
     "pol-lexisnexis-risk-about"
   ],
+  "website": "https://consumer.risk.lexisnexis.com/consumer",
   "missions": [
     "enterprise_data-fortify-lexisnexis",
     "enterprise_data-recon-supply-chain"

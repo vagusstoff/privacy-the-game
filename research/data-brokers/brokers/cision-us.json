@@ -2,13 +2,14 @@
   "id": "cision-us",
   "name": "Cision US Inc",
   "aliases": [
-    "CISION US INC"
+    "CISION US INC",
+    "Cision US, Inc"
   ],
   "parent": null,
   "kind": [],
   "registries": {
     "CA": null,
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -17,7 +18,7 @@
     "method": "web-form",
     "url": "https://portals.dporganizer.com/fa778b0e-817f-4c96-b13d-e2b614470033",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -25,7 +26,8 @@
   },
   "sources": [
     "registry-tx-2026-10-18",
-    "registry-or-2026-10-18"
+    "registry-or-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://www.cision.com"
 }

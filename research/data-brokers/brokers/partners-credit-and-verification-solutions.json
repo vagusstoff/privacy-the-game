@@ -1,0 +1,23 @@
+{
+  "id": "partners-credit-and-verification-solutions",
+  "name": "Partners Credit and Verification Solutions",
+  "aliases": [],
+  "parent": null,
+  "kind": [],
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
+  "sells": [],
+  "optOut": null,
+  "size": {
+    "known": false,
+    "signals": []
+  },
+  "sources": [
+    "registry-vt-2026-10-19"
+  ],
+  "website": "https://www.partnerscredit.com"
+}

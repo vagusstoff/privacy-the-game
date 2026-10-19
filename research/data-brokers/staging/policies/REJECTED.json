@@ -7,7 +7,7 @@
         "method": "web-form",
         "url": "https://www.acxiom.com/privacy",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -25,7 +25,7 @@
         "method": "web-form",
         "url": "https://www.spokeo.com/privacy-policy",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -43,7 +43,7 @@
         "method": "web-form",
         "url": "https://www.beenverified.com/svc/optout/search/comprehensive_optouts",
         "status": "blocked",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -61,7 +61,7 @@
         "method": "web-form",
         "url": "https://www.data-axle.com",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -79,7 +79,7 @@
         "method": "web-form",
         "url": "https://www.advancedbackgroundchecks.com/privacy",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -106,7 +106,7 @@
         "method": "web-form",
         "url": "https://www.liveramp.com",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -124,7 +124,7 @@
         "method": "web-form",
         "url": "https://www.peoplewhiz.com",
         "status": "blocked",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -142,7 +142,7 @@
         "method": "web-form",
         "url": "https://rocketreach.co/privacy",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -160,7 +160,7 @@
         "method": "web-form",
         "url": "https://spydialer.com/privacy.aspx",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -178,7 +178,7 @@
         "method": "web-form",
         "url": "https://www.transunion.com",
         "status": "blocked",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "portal",
@@ -196,7 +196,7 @@
         "method": "web-form",
         "url": "https://www.truepeoplesearch.com/privacy",
         "status": "blocked",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -223,7 +223,7 @@
         "method": "web-form",
         "url": "https://www.venntel.com/privacy-policy",
         "status": "verified",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",
@@ -241,7 +241,7 @@
         "method": "web-form",
         "url": "https://www.whitepages.com/privacy",
         "status": "blocked",
-        "verifiedAt": "2026-10-18"
+        "verifiedAt": "2026-10-19"
       },
       "staged": {
         "method": "web-form",

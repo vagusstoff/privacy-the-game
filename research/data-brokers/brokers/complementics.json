@@ -1,0 +1,28 @@
+{
+  "id": "complementics",
+  "name": "Complementics",
+  "aliases": [],
+  "parent": null,
+  "kind": [],
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
+  "sells": [],
+  "optOut": {
+    "method": "web-form",
+    "url": "https://www.complementics.com/opt-out",
+    "status": "verified",
+    "verifiedAt": "2026-10-19"
+  },
+  "size": {
+    "known": false,
+    "signals": []
+  },
+  "sources": [
+    "registry-vt-2026-10-19"
+  ],
+  "website": "https://complementics.com"
+}

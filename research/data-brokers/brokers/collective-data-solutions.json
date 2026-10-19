@@ -11,7 +11,7 @@
   ],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -22,7 +22,7 @@
     "method": "web-form",
     "url": "https://collectivedata.io",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -32,6 +32,7 @@
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
     "registry-or-2026-10-18",
+    "registry-vt-2026-10-19",
     "enf-ftc-kochava-sac-2024",
     "enf-ftc-kochava-order-2026"
   ],

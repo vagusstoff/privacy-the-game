@@ -2,13 +2,14 @@
   "id": "v-p-data",
   "name": "V P DATA LLC",
   "aliases": [
-    "Valpak Intelligence"
+    "Valpak Intelligence",
+    "V P Data"
   ],
   "parent": null,
   "kind": [],
   "registries": {
     "CA": null,
-    "VT": null,
+    "VT": "2026",
     "TX": null,
     "OR": "2026"
   },
@@ -17,13 +18,15 @@
     "method": "web-form",
     "url": "https://valpakintelligence.com/privacy-policy",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
     "signals": []
   },
   "sources": [
-    "registry-or-2026-10-18"
-  ]
+    "registry-or-2026-10-18",
+    "registry-vt-2026-10-19"
+  ],
+  "website": "https://www.valpakintelligence.com"
 }

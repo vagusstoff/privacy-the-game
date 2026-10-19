@@ -2,6 +2,7 @@
   "id": "neustar",
   "name": "NEUSTAR INC",
   "aliases": [
+    "Neustar, Inc",
     "Neustar, Inc.",
     "Neustar"
   ],
@@ -11,7 +12,7 @@
   ],
   "registries": {
     "CA": null,
-    "VT": null,
+    "VT": "2026",
     "TX": null,
     "OR": "2026"
   },
@@ -20,7 +21,7 @@
     "method": "web-form",
     "url": "https://www.transunion.com/privacy/neustar",
     "status": "blocked",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -28,8 +29,10 @@
   },
   "sources": [
     "registry-or-2026-10-18",
+    "registry-vt-2026-10-19",
     "sec-tru-10k-2025",
     "sec-tru-10k-2025-ex21",
     "enf-ftc-avast-complaint-2024"
-  ]
+  ],
+  "website": "https://www.transunion.com"
 }

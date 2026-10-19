@@ -20,6 +20,13 @@
     "kind": "registry",
     "accessed": "2026-10-18"
   },
+  "registry-vt-2026-10-19": {
+    "url": "https://bizfilings.vermont.gov/databrokersearch/Search",
+    "title": "Vermont Secretary of State, Data Broker registry (Bulk Database Download, \"Data Broker\" file)",
+    "archived": "https://web.archive.org/web/20261019163716/https://bizfilings.vermont.gov/databrokersearch/Search",
+    "kind": "registry",
+    "accessed": "2026-10-19"
+  },
   "sec-efx-10k-2025": {
     "url": "https://www.sec.gov/Archives/edgar/data/33185/000003318526000010/efx-20251231.htm",
     "archived": "https://web.archive.org/web/20260731044155/https://www.sec.gov/Archives/edgar/data/33185/000003318526000010/efx-20251231.htm",

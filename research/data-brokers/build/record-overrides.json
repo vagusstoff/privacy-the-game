@@ -1,4 +1,5 @@
 {
+  "experian-background-data": { "name": "Experian Background Data, Inc.", "replaces": { "name": "EXPERIAN BACKGROUND DATA, INC." }, "source": "sec-experian-annual-report-2026", "reason": "The Vermont registry spells the name in capitals; Experian plc's Annual Report 2026 lists it as Experian Background Data, Inc." },
   "insurance-services-office": { "name": "Insurance Services Office, Inc.", "replaces": { "name": "Verisk Analytics" }, "source": "enf-ftc-gm-complaint-2026", "reason": "FTC C-4828 names 'Insurance Services Office, Inc., doing business as Verisk Analytics'" },
   "general-motors": {
     "parent": "general-motors-company",

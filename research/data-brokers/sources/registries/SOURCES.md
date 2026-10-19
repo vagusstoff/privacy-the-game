@@ -3,7 +3,7 @@
 Each file here is an official state registry, saved on the date in its name. `build/import-registry.js` turns them into `brokers/*.json`:
 
 ```
-npm run brokers:import -- <CA|TX|OR> research/data-brokers/sources/registries/<state>-<date>.csv <date> [waybackUrl]
+npm run brokers:import -- <CA|TX|OR|VT> research/data-brokers/sources/registries/<state>-<date>.csv <date> [waybackUrl]
 ```
 
 Every broker found in a snapshot gets the source id `registry-<state>-<date>` (see `sources.json`).
@@ -13,9 +13,9 @@ Every broker found in a snapshot gets the source id `registry-<state>-<date>` (s
 | CA | `ca-2026-10-18.csv` | 603 | 603 |
 | TX | `tx-2026-10-18.csv` (from `tx-2026-10-18.xlsx`) | 451 | 437 |
 | OR | `or-2026-10-18.csv` | 391 | 387 |
-| VT | not obtained (see below) | – | – |
+| VT | `vt-2026-10-19.csv` (from `vt-2026-10-19.xlsx`) | 788 | 387 |
 
-Deduped total across the three registries: **735 brokers**. Pairs that share only a DBA or brand are kept apart and listed in `MERGE-CANDIDATES.md` (generated on every import).
+Deduped total across the four registries: **806 brokers**. Pairs that share only a DBA or brand are kept apart and listed in `MERGE-CANDIDATES.md` (generated on every import).
 
 ## California (CPPA)
 
@@ -44,12 +44,15 @@ Deduped total across the three registries: **735 brokers**. Pairs that share onl
 - The same page also offers a "Data Collected" report (`dfcs_db_collected.csv`, yes/no per data type such as name, address, biometric) and a license data file. Neither is imported, because none of their columns map onto a kind.
 - Notes: the opt-out website column is "OPT OUT WEBSITE". Some entries are bare domains (`Crunchbase.com`), which become `https://…`. When it is blank, "OPT OUT EMAIL" (explicitly an opt-out address) is used with method `email`.
 
-## Vermont (Secretary of State): not obtained
+## Vermont (Secretary of State)
 
 - Search: https://bizfilings.vermont.gov/databrokersearch/Search (the old link https://bizfilings.vermont.gov/online/DatabrokerInquire/ now redirects to a login). Every search, even a name search, raises a reCAPTCHA ("User validation required to continue").
-- Bulk download: the Secretary of State's office says, in a Vermont Public Records Act response posted on MuckRock, that the dataset is under "Bulk Database Download" in Online Services after logging in, with no fee. That needs a registered account.
-- We did not create an account or solve the CAPTCHA. Third-party mirrors (offlist.me, Privacy Rights Clearinghouse) are not official, so they were not used.
-- To finish: someone logs in at bizfilings.vermont.gov, downloads the Data Broker bulk file, and saves it here as `vt-<date>.csv` (converted from Excel if needed). Then add its real header names to `COLUMN_MAPS.VT` and run `npm run brokers:import -- VT …`.
+- Download: the official bulk file, not a mirror. The Secretary of State's office says, in a Vermont Public Records Act response posted on MuckRock, that the dataset is under "Bulk Database Download" in Online Services after logging in, with no fee. A maintainer with a bizfilings.vermont.gov account logged in, went to Online Services → Bulk Database Download, and downloaded the "Data Broker" file on 2026-10-19. It came as `Data Broker.xlsx`, saved unchanged as `vt-2026-10-19.xlsx` (sha256 `263ff5ffb883e8e71277453ee9d72ef12a71cb1a9b7188c96bcd3a02e0eeefee`). It has one sheet, "DataBroker Information", with a header row and 788 data rows.
+- Conversion: the one sheet was written to `vt-2026-10-19.csv` (sha256 `a5defbb3df2cf7cd6b89ee552aa061295eb374bffc6126be2283f580848ec4fa`) with openpyxl 3.1.5 (`uv run --with openpyxl python -I`, which is not a project dependency), reading cell values (`read_only=True, data_only=True`). Every non-empty row was written as-is: all 40 columns (the last has no header), empty cells as empty strings, values not trimmed, `\n` line endings, quoting only where needed (Python's `csv` default), UTF-8 without a BOM. The file has no metadata rows above the header.
+- Wayback: https://web.archive.org/web/20261019163716/https://bizfilings.vermont.gov/databrokersearch/Search (saved by us). This is a capture of the public search page, not of the bulk file: the file is only served after logging in, so it has no public URL and cannot be archived. To check our copy, download the same file with your own account and compare it with the SHA-256 above (a later download will differ as registrations change).
+- Accessed: 2026-10-19.
+- Rows: the file has one row per applicant contact, so a broker can appear on several rows (788 rows, 520 registration numbers, 503 distinct names). It also keeps lapsed registrations: `DataBrokerStatus` is "Registered" on 633 rows (all expiring 2/1/2027) and "Unregistered" on 155 (147 expired 2/1/2026). Only "Registered" rows are imported (`onlyWhere` in `COLUMN_MAPS.VT`), which gives 387 brokers. 115 names appear only on "Unregistered" rows and are not imported.
+- Notes: the opt-out column is "OptOutMethod", a free-text answer to how consumers opt out. It is used only when the whole answer is a URL or an email address; prose is never mined for links, so most Vermont answers give no route and Vermont-only records mostly have `optOut: null`. "IspersonalinformationOptOut" (True/False) is not turned into `method: "none"`. "EmailAddress" is the broker's general contact, not an opt-out route, so it is not used. The website is "PrimaryInterneturl". Vermont has no data-category column, so it gives no kind (`kind: []`, `CATEGORY_MAP.VT` is empty). The file also names each registration's applicant (name, email, phone, address), as the Texas export names a contact person; those columns are not imported into records.
 
 ## How the import decides things
 

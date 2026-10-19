@@ -11,7 +11,7 @@
   "kind": [],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -20,7 +20,7 @@
     "method": "web-form",
     "url": "https://www.experian.com/privacy/us-consumer-data-privacy-policy",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -30,6 +30,7 @@
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
     "registry-or-2026-10-18",
+    "registry-vt-2026-10-19",
     "sec-experian-annual-report-2026",
     "proc-usasp-djf151200g0000693",
     "proc-usasp-2032h519f00092",

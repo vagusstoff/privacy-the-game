@@ -1,14 +1,19 @@
 {
   "id": "chex-systems",
-  "name": "ChexSystems",
+  "name": "Chex Systems, Inc.",
   "aliases": [
-    "Chex Systems, Inc."
+    "ChexSystems"
   ],
   "parent": "fis",
   "kind": [
     "financial"
   ],
-  "registries": {},
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
   "sells": [
     "consumer reports on deposit-account history"
   ],
@@ -24,7 +29,9 @@
     "signals": []
   },
   "sources": [
+    "registry-vt-2026-10-19",
     "pol-chexsystems-freeze",
     "pol-chexsystems-home"
-  ]
+  ],
+  "website": "https://chexsystems.com"
 }

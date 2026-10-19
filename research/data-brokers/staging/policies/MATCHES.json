@@ -30,6 +30,11 @@
     "matchedBy": "id"
   },
   {
+    "stagedId": "chex-systems",
+    "existingId": "chex-systems",
+    "matchedBy": "id"
+  },
+  {
     "stagedId": "consumer-base",
     "existingId": "consumerbase",
     "matchedBy": "legalKey"
@@ -73,6 +78,11 @@
     "stagedId": "gravy-analytics",
     "existingId": "gravy-analytics",
     "matchedBy": "id"
+  },
+  {
+    "stagedId": "innovis",
+    "existingId": "innovis-data-solutions",
+    "matchedBy": "alias"
   },
   {
     "stagedId": "instant-checkmate",

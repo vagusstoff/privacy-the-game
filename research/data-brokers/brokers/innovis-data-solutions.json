@@ -1,14 +1,19 @@
 {
-  "id": "innovis",
-  "name": "Innovis",
+  "id": "innovis-data-solutions",
+  "name": "Innovis Data Solutions, Inc.",
   "aliases": [
-    "Innovis Data Solutions, Inc."
+    "Innovis"
   ],
   "parent": null,
   "kind": [
     "financial"
   ],
-  "registries": {},
+  "registries": {
+    "CA": null,
+    "VT": "2026",
+    "TX": null,
+    "OR": null
+  },
   "sells": [
     "consumer reports sold to customers and to resellers who pass them on to their own customers"
   ],
@@ -24,7 +29,9 @@
     "signals": []
   },
   "sources": [
+    "registry-vt-2026-10-19",
     "pol-innovis-optout",
     "pol-innovis-privacy"
-  ]
+  ],
+  "website": "https://www.innovis.com/"
 }

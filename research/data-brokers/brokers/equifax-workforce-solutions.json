@@ -14,7 +14,7 @@
   ],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": null,
     "OR": null
   },
@@ -27,7 +27,7 @@
     "method": "web-form",
     "url": "https://www.equifax.com/personal/my-privacy/",
     "status": "verified",
-    "verifiedAt": "2026-10-18",
+    "verifiedAt": "2026-10-19",
     "alternates": [
       {
         "site": "employees.theworknumber.com",
@@ -53,6 +53,7 @@
   },
   "sources": [
     "registry-ca-2026-10-18",
+    "registry-vt-2026-10-19",
     "sec-efx-10k-2025",
     "sec-efx-10k-2025-ex21",
     "proc-usasp-15f06721f0001429",

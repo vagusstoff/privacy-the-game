@@ -4,13 +4,13 @@ A dataset of mostly US data brokers (and some of their UK and French parent comp
 
 It was built for [Reclaim City](https://github.com/lizTheDeveloper/privacy-the-game), a game about taking your data back. It is published separately for journalists, researchers and privacy advocates who want to check, reuse or extend it.
 
-- **As of:** 2026-10-18 (`DATASET.json`)
+- **As of:** 2026-10-19 (`DATASET.json`)
 - **License:** [CC BY 4.0](LICENSE)
 - **Errors:** [open an issue](https://github.com/lizTheDeveloper/privacy-the-game/issues)
 
 ## How to cite
 
-> Reclaim City open data broker dataset, as of 2026-10-18. https://github.com/lizTheDeveloper/privacy-the-game/tree/main/research/data-brokers (CC BY 4.0).
+> Reclaim City open data broker dataset, as of 2026-10-19. https://github.com/lizTheDeveloper/privacy-the-game/tree/main/research/data-brokers (CC BY 4.0).
 
 When you cite a specific link, also cite the source document it rests on (its `url` and `archived` copy in `sources.json`). The dataset is a pointer to the evidence, not the evidence itself.
 
@@ -18,10 +18,10 @@ When you cite a specific link, also cite the source document it rests on (its `u
 
 | | Count |
 |---|---|
-| Broker records | 839 |
+| Broker records | 903 |
 | Links (all tiers) | 158 |
 | Published links (tier A) | 106 |
-| Sources | 171 |
+| Sources | 172 |
 
 Published links by type:
 
@@ -42,23 +42,26 @@ Published links by source family:
 
 The other 52 links are kept but not published: 10 tier B, 27 tier C, and 15 tier A links that review held back because the source's wording did not support publishing the claim (for example, a procurement award that reads as a software licence, a filing that says reports "combine information from" bureaus rather than that one buys from another, or a complaint that describes what a contract permitted rather than what the companies did). See "Evidence tiers" below.
 
-Of the 839 broker records, 735 come from the state registries and 104 were added by research (parent companies, subsidiaries named in filings, and government buyers). 93 records appear in at least one published link; most registered brokers have no documented link yet.
+Of the 903 broker records, 806 come from the state registries and 97 were added by research (parent companies, subsidiaries named in filings, and government buyers). 93 records appear in at least one published link; most registered brokers have no documented link yet.
 
 The count includes a few near-duplicates caused by typos in the registries themselves, such as `west-publising` beside `west-publishing` and `melissa-data-corporatoin` beside `melissa-data`. They are kept as separate records until research confirms they are the same company.
 
 ## Coverage
 
-State data broker registries imported, each saved on 2026-10-18 (details in `sources/registries/SOURCES.md`):
+State data broker registries imported (details in `sources/registries/SOURCES.md`):
 
-| Registry | Brokers listing it |
-|---|---|
-| California (CPPA) | 603 |
-| Texas (Secretary of State) | 437 |
-| Oregon (DCBS) | 387 |
+| Registry | Saved | Brokers listing it |
+|---|---|---|
+| California (CPPA) | 2026-10-18 | 603 |
+| Texas (Secretary of State) | 2026-10-18 | 437 |
+| Oregon (DCBS) | 2026-10-18 | 387 |
+| Vermont (Secretary of State) | 2026-10-19 | 387 |
 
-**Vermont is not included.** Its bulk download requires a registered account, and its search uses a CAPTCHA. We did not use unofficial mirrors. This is a known gap: brokers registered only in Vermont are missing.
+71 records are listed only by Vermont.
 
-`registries.CA: "2026"` means "listed in our 2026-10-18 snapshot", not the year the broker first registered.
+**Vermont's file is not publicly downloadable.** The Secretary of State offers it as a "Bulk Database Download" to anyone with a free bizfilings.vermont.gov account, and a maintainer downloaded it while logged in. Because it sits behind the login, it has no public URL and cannot be archived; its `archived` copy in `sources.json` is a Wayback capture of the registry's public search page instead, and `SOURCES.md` records the file's SHA-256 so a copy someone else downloads can be compared. The file also lists lapsed registrations ("Unregistered"); only brokers with a current registration ("Registered") are imported. Vermont gives no opt-out link field, only a free-text description, so a Vermont-only record has an opt-out route only when that answer is a bare URL or email address.
+
+`registries.CA: "2026"` means "listed in our snapshot" (saved 2026-10-18; Vermont's 2026-10-19), not the year the broker first registered.
 
 ## Evidence tiers and what gets published
 
@@ -86,7 +89,7 @@ These are the rules every published claim follows. They are what you need to jud
 - **Known gaps:**
   - Some holding-company to operating-company links are not yet sourced, so related records sit unconnected: TransUnion and Trans Union LLC, Dun & Bradstreet Holdings and Dun and Bradstreet Inc., RELX PLC and RELX Inc., and Verisk and Insurance Services Office.
   - Government buyers are modelled at the agency level (ICE, CBP, FBI…). Their parent departments are not.
-  - Vermont's registry is missing (see Coverage).
+  - Most Vermont-only records have no opt-out route yet: Vermont describes opt-outs in prose, which the import never mines for links (see Coverage).
 - **Unknown stays unknown.** A missing size is `size.known: false`, never an estimate. An opt-out URL we couldn't check is marked as such, not assumed live or dead.
 
 ## Files
@@ -114,11 +117,11 @@ The game reads a derived file, `src/data/broker-map.json`, which holds only publ
 | `name` | Legal name where known. |
 | `aliases` | DBAs and other names. An alias never merges two records. |
 | `parent` | Id of the direct parent company, or `null`. |
-| `kind` | Zero or more of `people-search`, `marketing`, `risk-identity`, `location`, `financial`, `health`, `automotive`, `identity-resolution`, `data-marketplace`, `ad-network`, `buyer`. Empty means not yet classified (617 records). Government agencies are `buyer`. |
-| `registries` | `{ "CA": "2026", "TX": …, "OR": … }`: the snapshot year a registry listed it in. |
+| `kind` | Zero or more of `people-search`, `marketing`, `risk-identity`, `location`, `financial`, `health`, `automotive`, `identity-resolution`, `data-marketplace`, `ad-network`, `buyer`. Empty means not yet classified (681 records). Government agencies are `buyer`. |
+| `registries` | `{ "CA": "2026", "VT": …, "TX": …, "OR": … }`: the snapshot year a registry listed it in. |
 | `website` | Primary website, where a registry gives one. |
 | `sells` | What a source says it sells, in short phrases. |
-| `optOut` | How to opt out, or `null` if no route is known (96 records). See below. |
+| `optOut` | How to opt out, or `null` if no route is known (159 records). See below. |
 | `size` | `{ known, signals: [{ kind, value, source }] }`. `known: false` has no signals. |
 | `missions` | Reclaim City missions that file with this broker (game use only). |
 | `sources` | Ids in `sources.json` behind anything on the record. |
@@ -208,7 +211,7 @@ Reading these numbers:
 `npm run brokers:export` writes this file from the dataset. It holds only published links. Its shape:
 
 ```json
-{ "formatVersion": 1, "asOf": "2026-10-18",
+{ "formatVersion": 1, "asOf": "2026-10-19",
   "brokers": [ { "id": "…", "name": "…", "parent": null, "kind": [], "registries": {}, "sells": [],
                  "optOut": { "method": "web-form", "url": "…", "status": "verified", "verifiedAt": "2026-10-19" },
                  "missions": [], "reach": 1, "hub": false } ],
@@ -252,9 +255,11 @@ echo '[]' > research/data-brokers/links.json
 
 # 2. Import the registries. The last argument is each snapshot's Wayback capture. A capture can
 #    predate our download (CA's is from 2026-08-06); SOURCES.md records that the file had not changed.
+#    TX's export and VT's login-only bulk file cannot be archived, so theirs capture the registry page.
 npm run brokers:import -- CA research/data-brokers/sources/registries/ca-2026-10-18.csv 2026-10-18 https://web.archive.org/web/20260806041805/https://cppa.ca.gov/data_broker_registry/registry.csv
 npm run brokers:import -- TX research/data-brokers/sources/registries/tx-2026-10-18.csv 2026-10-18 https://web.archive.org/web/20261019051305/https://texas-sos.appianportalsgov.com/data-broker-registry
 npm run brokers:import -- OR research/data-brokers/sources/registries/or-2026-10-18.csv 2026-10-18 https://web.archive.org/web/20261019051000/https://www4.cbs.state.or.us/ex/shared/downtemp/dfcs_db_optout.csv
+npm run brokers:import -- VT research/data-brokers/sources/registries/vt-2026-10-19.csv 2026-10-19 https://web.archive.org/web/20261019163716/https://bizfilings.vermont.gov/databrokersearch/Search
 
 # 3. Check the registry opt-out URLs (the merge uses the result)
 npm run brokers:check-urls

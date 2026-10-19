@@ -14,7 +14,7 @@
   ],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": "2026",
     "OR": "2026"
   },
@@ -53,6 +53,7 @@
     "registry-ca-2026-10-18",
     "registry-tx-2026-10-18",
     "registry-or-2026-10-18",
+    "registry-vt-2026-10-19",
     "sec-ramp-10k-fy2026",
     "enf-ftc-avast-complaint-2024",
     "pol-liveramp-privacy-choices",

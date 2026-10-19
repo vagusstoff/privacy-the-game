@@ -2,13 +2,14 @@
   "id": "dr-decision-resources",
   "name": "DR Decision Resources, LLC",
   "aliases": [
-    "DR/DECISION RESOURCES, LLC"
+    "DR/DECISION RESOURCES, LLC",
+    "DR/Decision Resources, LLC"
   ],
   "parent": null,
   "kind": [],
   "registries": {
     "CA": "2026",
-    "VT": null,
+    "VT": "2026",
     "TX": null,
     "OR": "2026"
   },
@@ -17,7 +18,7 @@
     "method": "web-form",
     "url": "https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/draft/c3eedb35-4568-4772-87fb-4d8ae17ac233",
     "status": "verified",
-    "verifiedAt": "2026-10-18"
+    "verifiedAt": "2026-10-19"
   },
   "size": {
     "known": false,
@@ -25,7 +26,8 @@
   },
   "sources": [
     "registry-ca-2026-10-18",
-    "registry-or-2026-10-18"
+    "registry-or-2026-10-18",
+    "registry-vt-2026-10-19"
   ],
   "website": "https://clarivate.com"
 }
